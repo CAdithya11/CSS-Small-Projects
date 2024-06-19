@@ -17,84 +17,82 @@
         justify-content: center;
         align-items: center;
       }
-      .circle,
-      .miniCircle {
-        border: 1px solid black;
-        border-radius: 50%;
+      img {
+        position: absolute;
         width: 400px;
         height: 400px;
+      }
+      .clock {
         position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 400px;
+        height: 400px;
       }
-      .miniCircle {
-        width: 420px;
-        height: 420px;
-      }
-      .lines {
-        transform-origin: bottom center;
+      .ticks {
         position: absolute;
         width: 1px;
-        height: 200px;
-        background-color: black;
-        top: 0;
+        top: 10%;
         left: 50%;
+        height: 170px;
+        background-color: black;
+        transform-origin: bottom center 20px;
       }
       .secound {
-        z-index: 1;
-        background-color: rgb(255, 0, 0);
+        background-color: blue;
+        z-index: 3;
       }
       .minute {
-        top: 20px;
-        background-color: rgb(0, 0, 0);
+        top: 15%;
+        left: 49.7%;
         width: 3px;
-        height: 180px;
-        transform: rotate(20deg);
-        left: 49.5%;
+        height: 150px;
+        z-index: 2;
+        box-shadow: 1px 1px 50px 1px rgb(255, 255, 255);
       }
       .hour {
-        background-color: rgb(0, 0, 0);
-        top: 50px;
-        height: 150px;
-        width: 5px;
-        left: 49.5%;
+        left: 49.3%;
+        top: 22.5%;
+        width: 6px;
+        height: 120px;
+        z-index: 1;
       }
       .center {
+        position: absolute;
         width: 10px;
         height: 10px;
+        top: 50%;
+        left: 50%;
         background-color: black;
-        border-radius: 50%;
-        z-index: 1;
+        border-radius: 100%;
+        transform: translate(-50%, 50%);
+        z-index: 6;
       }
     </style>
   </head>
   <body>
-    <div class="miniCircle">
-      <div class="circle">
-        <div class="lines secound"></div>
-        <div class="lines minute"></div>
-        <div class="lines hour"></div>
-        <div class="center"></div>
-      </div>
+    <div class="clock">
+      <img src="clock.png" alt="" />
+      <div class="ticks secound"></div>
+      <div class="ticks minute"></div>
+      <div class="ticks hour"></div>
+      <div class="center"></div>
     </div>
     <script>
-      function timeAnimation() {
-        const now = new Date();
-
-        const Secounds = now.getSeconds() * 6;
-        const Minutes = now.getMinutes() * 6;
-
+      function clock() {
         const secound = document.querySelector('.secound');
         const minute = document.querySelector('.minute');
         const hour = document.querySelector('.hour');
-        console.log(Secounds);
-        secound.style.transform = `rotate(${Secounds}deg)`;
-        minute.style.transform = `rotate(${Minutes}deg)`;
-        hour.style.transform = `rotate(${now.getHours * 15}deg)`;
+
+        const now = new Date();
+
+        const seconds = now.getSeconds() * 6;
+        const minutes = now.getMinutes() * 6 + now.getSeconds() * 0.1;
+        const hours = (now.getHours() % 12) * 30 + now.getMinutes() * 0.5 + now.getSeconds() * (0.5 / 60);
+
+        secound.style.transform = `rotate(${seconds}deg)`;
+        minute.style.transform = `rotate(${minutes}deg)`;
+        hour.style.transform = `rotate(${hours}deg)`;
       }
-      setInterval(timeAnimation, 1000);
-      timeAnimation();
+      setInterval(clock, 1000);
     </script>
   </body>
 </html>
