@@ -27,8 +27,10 @@ function value(x) {
     value.innerHTML = result;
     screen.innerHTML = '0';
   } else if (x === 'b') {
-    if (screen.innerText != '0') {
+    if (screen.innerText.length > 1) {
       screen.innerHTML = screen.innerText.slice(0, screen.innerText.length - 1);
+    } else {
+      screen.innerHTML = '0';
     }
   } else if (x != 'C') {
     if (screen.innerText === '0') {
