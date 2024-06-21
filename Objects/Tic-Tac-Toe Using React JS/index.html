@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .board {
+        width: 665px;
+        height: 665px;
+        border-radius: 2px;
+        border: 1px solid black;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .box {
+        margin: 10px;
+        border: 1px solid black;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="board">
+      <div class="box" id="box1" onclick="print(0,0,'box1')"></div>
+      <div class="box" id="box2" onclick="print(0,1,'box2')"></div>
+      <div class="box" id="box3" onclick="print(0,2,'box3')"></div>
+      <div class="box" id="box4" onclick="print(1,0,'box4')"></div>
+      <div class="box" id="box5" onclick="print(1,1,'box5')"></div>
+      <div class="box" id="box6" onclick="print(1,2,'box6')"></div>
+      <div class="box" id="box7" onclick="print(2,0,'box7')"></div>
+      <div class="box" id="box8" onclick="print(2,1,'box8')"></div>
+      <div class="box" id="box9" onclick="print(2,2,'box9')"></div>
+    </div>
+    <script>
+      const list = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', ''],
+      ];
+      let count = 0;
+      function print(x, y, id) {
+        const Pone = document.querySelector(`#${id}`);
+        // if count is an even number it is player 1 turm
+        if (list[x][y] != 'o' && count % 2 === 0) {
+          list[x][y] = 'x';
+          Pone.innerHTML = `<img src="https://th.bing.com/th/id/R.e88bb40ecefdbd2d2f9a02944e23e687?rik=egJSj%2bSgNwIo%2bw&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fLbg%2f9cRLbgE7i.png&ehk=um2l3QR5q%2bY4Ii8W05U1Ly%2f%2bmY5QrVU8ZFS1fmzOXlc%3d&risl=&pid=ImgRaw&r=0" alt="">`;
+        }
+        //if count is an odd number it's player 2 turn
+        else {
+          list[x][y] = 'o';
+          Pone.innerHTML = `<img src="https://th.bing.com/th/id/R.e88bb40ecefdbd2d2f9a02944e23e687?rik=egJSj%2bSgNwIo%2bw&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2f9cR%2fLbg%2f9cRLbgE7i.png&ehk=um2l3QR5q%2bY4Ii8W05U1Ly%2f%2bmY5QrVU8ZFS1fmzOXlc%3d&risl=&pid=ImgRaw&r=0" alt="">`;
+    
+        }
+        count++;
+        console.log(list);
+      }
+    </script>
+  </body>
+</html>

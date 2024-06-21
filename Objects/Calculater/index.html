@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="https://cdn.pixabay.com/photo/2022/05/08/03/10/calculator-7181192_1280.png" />
+    <title>Calculator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: poppins;
+      }
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      img {
+        transform: scale(0.8);
+      }
+      .prototype {
+        position: absolute;
+        z-index: -1;
+      }
+
+      .calculator {
+        width: 428px;
+        height: 863px;
+        margin-top: -8px;
+        background-color: RGB(34, 55, 84);
+        border-radius: 40px;
+      }
+
+      .time {
+        color: white;
+        font-weight: 400;
+        margin: 20px 0px 0px 40px;
+      }
+      .screen {
+        display: flex;
+        margin: 67px 20px 0px 0px;
+        align-items: flex-end;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+      .screen .answer {
+        font-size: 70px;
+        color: white;
+        display: flex;
+      }
+      .calculation {
+        font-size: 20px;
+        margin-top: -15px;
+        font-weight: 300;
+        color: white;
+      }
+      .bottom {
+        display: flex;
+        width: 100%;
+        height: 626px;
+      }
+      .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 45px 0px 38px 0px;
+      }
+      .button {
+        cursor: pointer;
+        color: white;
+        font-size: 30px;
+        width: 80px;
+        height: 80px;
+        margin: 0px 15px 12px 5px;
+        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .button:active {
+        box-shadow: 6px 6px 10px rgba(255, 255, 255, 0.1);
+        background-color: RGB(32, 50, 80);
+      }
+      #backspace {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="top">
+        <div class="time"></div>
+        <div class="screen">
+          <div class="answer">0</div>
+          <div class="calculation">0</div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="buttons">
+          <div onclick="value('C')" class="button">C</div>
+          <div onclick="value('+')" class="button">+/-</div>
+          <div onclick="value('%')" class="button">%</div>
+          <div onclick="value('/')" class="button">/</div>
+          <div onclick="value('7')" class="button">7</div>
+          <div onclick="value('8')" class="button">8</div>
+          <div onclick="value('9')" class="button">9</div>
+          <div onclick="value('*')" class="button">×</div>
+          <div onclick="value('4')" class="button">4</div>
+          <div onclick="value('5')" class="button">5</div>
+          <div onclick="value('6')" class="button">6</div>
+          <div onclick="value('-')" class="button">-</div>
+          <div onclick="value('1')" class="button">1</div>
+          <div onclick="value('2')" class="button">2</div>
+          <div onclick="value('3')" class="button">3</div>
+          <div onclick="value('+')" class="button">+</div>
+          <div onclick="value('0')" class="button">0</div>
+          <div onclick="value('.')" class="button">.</div>
+          <div onclick="value('b')" class="button">
+            <img id="backspace" src="backspace.png" alt="" />
+          </div>
+          <div onclick="value('=')" class="button">=</div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
