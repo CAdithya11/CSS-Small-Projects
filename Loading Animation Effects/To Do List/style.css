@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  --background-color-light: rgb(71, 71, 255);
+  --background-color-dark: rgb(33, 33, 197);
+  --border-radius: 5px;
+}
+li {
+  list-style-type: none;
+}
+.input input[type='text'] {
+  padding: 5px;
+  border-radius: var(--border-radius);
+  border: none;
+  margin: 10px 5px 10px 0px;
+  width: 300px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 5px 10px 5px 10px;
+  border-radius: var(--border-radius);
+  color: white;
+  background-color: var(--background-color-dark);
+}
+button img {
+  width: 20px;
+  height: 20px;
+}
+
+.input,
+.list {
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  background-color: var(--background-color-light);
+}
+.list {
+  padding-bottom: 40px;
+}
+.item li {
+  display: flex;
+  border-bottom: 1px solid white;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.list button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.list .left {
+  font-size: 14px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.list .left input[type='checkbox'] {
+  width: 15px;
+  height: 15px;
+  border: none;
+  margin-right: 10px;
+}
+input:active {
+  outline: none;
+  border: none;
+}
+label {
+  cursor: pointer;
+}

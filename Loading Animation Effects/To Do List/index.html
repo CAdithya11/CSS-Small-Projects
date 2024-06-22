@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="toDoList">
+      <!-- Top box -->
+      <div class="input">
+        <input type="text" name="" id="mainInput" />
+        <button onclick="add(this)">Add</button>
+      </div>
+
+      <!-- Bottom Box -->
+      <div class="list">
+        <div class="item">
+          <li>
+            <div class="left">
+              <input onclick="done(this)" type="checkbox" id="task1" /><label for="task1">Wash Clothes</label>
+            </div>
+            <button onclick="deletee(this)"><img src="imges/bin.png" alt="" /></button>
+          </li>
+        </div>
+      </div>
+    </div>
+    <script>
+      function done(checkbox) {
+        const listItem = document.querySelector('.left');
+        if (checkbox.checked) {
+          listItem.style.textDecoration = 'line-through';
+        } else {
+          listItem.style.textDecoration = 'none';
+        }
+      }
+
+      function deletee(button) {
+        const listItem = button.parentNode;
+        listItem.remove();
+      }
+      function add(input) {
+        let taskId = 2;
+        const inputI = document.querySelector('#mainInput');
+        if (inputI.value.trim() != '') {
+          const item = document.querySelector('.item');
+          const li = document.createElement('li');
+          li.innerHTML = `
+            <div class="left" id="T${taskId}">
+              <input onclick="done(this)" type="checkbox" id="task${taskId}" /><label for="task${taskId}">${inputI.value}</label>
+            </div>
+            <button onclick="deletee(this)"><img src="imges/bin.png" alt="" /></button>
+        `;
+          item.appendChild(li);
+          taskId++;
+          inputI.value = '';
+        } else {
+          alert('Task Cannot Be Empty');
+        }
+      }
+    </script>
+  </body>
+</html>
